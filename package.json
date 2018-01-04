@@ -4,7 +4,7 @@
   "description": "A dummy service for my GraphQl API wrapper project",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node ./server.js"
   },
   "author": "Shawna Mattison",
   "license": "MIT",
