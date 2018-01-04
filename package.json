@@ -4,23 +4,26 @@
   "description": "A dummy service for my GraphQl API wrapper project",
   "main": "server.js",
   "scripts": {
-    "postinstall": "npm run build",
-    "start": "node ./lib/server.js",
-    "build": "babel server.js -d lib"
+    "start": "babel-node ./server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shawndromat/product-service"
   },
   "author": "Shawna Mattison",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.16.2"
-  },
-  "engines": {
-    "node": "8.9.0"
-  },
-  "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-polyfill": "^6.26.0",
-    "babel-preset-env": "^1.6.1"
+    "babel-preset-env": "^1.6.1",
+    "express": "^4.16.2",
+    "path": "^0.12.7",
+    "request": "^2.83.0"
+  },
+  "engines": {
+    "node": "8.9.x",
+    "npm": "5.5.x"
   }
 }

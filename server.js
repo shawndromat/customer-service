@@ -33,8 +33,7 @@ const retrieveAgent = (agentId) => {
   return agent || {name: "Agent Mystery"}
 }
 
-app.route('/customer/:customerId')
-  .get((req, res) => {
+app.get('/customer/:customerId', (req, res) => {
     let customerId = req.params.customerId
 
     console.log(`Requested customer with id: ${customerId}`)
@@ -46,8 +45,7 @@ app.route('/customer/:customerId')
   })
 
 
-app.route('/agent/:agentId')
-  .get((req, res) => {
+app.get('/agent/:agentId', (req, res) => {
     let agentId = req.params.agentId
 
     console.log(`Requested agent with id: ${agentId}`)
