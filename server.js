@@ -22,7 +22,9 @@ app.get('/products/:productId', (req, res) => {
 })
 
 app.get('/products/:productId/ratings', (req, res) => {
-  res.json(getRatings())
+  setTimeout(() => {
+    res.json(getRatings())
+  })
 })
 
 app.get('/categories/:name/sizes', (req, res) => {
