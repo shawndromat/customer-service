@@ -1,9 +1,10 @@
 import express from 'express'
 import retrieveCustomer from "./retrieveCustomer"
 import retrieveAgent from "./retrieveAgent"
+import {retrieveProduct, retrieveProductColors, retrieveProductSizes} from "./retrieveProduct"
+
 
 const PORT = process.env.PORT || 4001
-
 const app = express()
 
 app.get('/customers/:customerId', (req, res) => {
@@ -16,18 +17,21 @@ app.get('/agents/:agentId', (req, res) => {
     }, 2000)
   })
 
-app.get('/agent/:agentId', (req, res) => {
-    let agentId = req.params.agentId
+app.get('/products/:productId', (req, res) => {
+  res.json(retrieveProduct(req.params.productId))
+})
 
-    console.log(`Requested agent with id: ${agentId}`)
+app.get('/categories/:name/sizes', (req, res) => {
+  setTimeout(() => {
+    res.json(retrieveProductSizes(req.params.name))
+  }, 2000)
+})
 
-    setTimeout(() => {
-      res.json({
-        id: agentId,
-        ...retrieveAgent(agentId)
-      })
-    }, 5000)
-  })
+app.get('/categories/:name/colors', (req, res) => {
+  setTimeout(() => {
+    res.json(retrieveProductColors(req.params.name))
+  }, 2000)
+})
 
 app.listen(PORT)
 console.log(`Running the service on port ${PORT}`)
