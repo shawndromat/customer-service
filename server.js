@@ -1,7 +1,7 @@
 import express from 'express'
 import retrieveCustomer from "./retrieveCustomer"
 import retrieveAgent from "./retrieveAgent"
-import {retrieveProduct, retrieveProductColors, retrieveProductSizes} from "./retrieveProduct"
+import {getRatings, retrieveProduct, retrieveProductColors, retrieveProductSizes} from "./retrieveProduct"
 
 
 const PORT = process.env.PORT || 4001
@@ -19,6 +19,10 @@ app.get('/agents/:agentId', (req, res) => {
 
 app.get('/products/:productId', (req, res) => {
   res.json(retrieveProduct(req.params.productId))
+})
+
+app.get('/products/:productId/ratings', (req, res) => {
+  res.json(getRatings())
 })
 
 app.get('/categories/:name/sizes', (req, res) => {

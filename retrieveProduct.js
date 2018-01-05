@@ -30,3 +30,22 @@ export const retrieveProductSizes = (name) => (
 export const retrieveProductColors = (name) => (
   colors[name]
 )
+
+const ratings = [
+  "Poor",
+  "Pretty decent",
+  "Good product",
+  "Does a good job",
+  "Fantastic!"
+]
+
+export const getRatings = () => {
+  const numRatings = Math.floor(Math.random() * 10) + 1
+  return new Array(numRatings).fill(1).map(() => {
+    const rating = Math.floor(Math.random() * 5) + 1
+    return {
+      rating: rating,
+      comment: ratings[rating - 1]
+    }
+  })
+}
